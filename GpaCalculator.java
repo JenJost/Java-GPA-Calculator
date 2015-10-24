@@ -1,13 +1,18 @@
 import java.util.Scanner; // this allows users to enter information
-import java.text.DecimalFormat; // this will help format the GPA in 0.00 format. Maybe. Not sure if needed.
+import java.text.DecimalFormat; // this will help format the GPA in 0.00 format.
 
 public class MyGpaCalculator {  
 
     public static void main(final String[] args) {
-        
-    Scanner gpaScanner = new Scanner ( System.in ); /* The Scanner constructor requires an input stream 
+    
+    // This truncates the GPA. Notice that it's imporant in a later code:
+    //   System.out.println("Your GPA is " + df.format(sum));
+    DecimalFormat df = new  DecimalFormat("0.##");
+    
+    /* The Scanner constructor requires an input stream 
     object as an argument. GpaScanner is an identifer and variable. */
-
+    Scanner gpaScanner = new Scanner ( System.in ); 
+    
     //This part prompts the user for number of credits associated with each grade. 
     System.out.print("Number of credits earned with A grade: ");
       double aGrades = gpaScanner.nextDouble();
@@ -28,7 +33,7 @@ public class MyGpaCalculator {
         
         double sum = gradePoints / totalCredits;
     
-    System.out.println("Your GPA is " + sum);
+    System.out.println("Your GPA is " + df.format(sum));
     
     }
 }
