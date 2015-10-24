@@ -2,7 +2,7 @@
  *
  * @author Jenifer Jost 
  * Fremont, NE 
- * The current (master) version of my GPA calculator in.
+ * The current (master) version of my GPA calculator.
  * Prior versions saved as GitHub branches. 
  */
 
