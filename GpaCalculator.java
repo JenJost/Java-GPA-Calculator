@@ -35,6 +35,7 @@ public class Secondgpacalc {
         String f_grades;
         f_grades = JOptionPane.showInputDialog("# Credits earned with F grade");
         
+        //This changes the input from strings into doubles
         double aGrades = Double.parseDouble(a_grades);
         double bGrades = Double.parseDouble(b_grades);
         double cGrades = Double.parseDouble(c_grades);
