@@ -2,8 +2,8 @@
  *
  * @author Jenifer Jost 
  * Fremont, NE 
- * The second version of my Java GPA Calculator.
- * Prior versions saved as branches in GitHub. 
+ * The current (master) version of my GPA calculator in.
+ * Prior versions saved as GitHub branches. 
  */
 
 import javax.swing.JOptionPane; // this is the input box
