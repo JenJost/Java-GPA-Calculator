@@ -7,7 +7,8 @@
  */
 
 import javax.swing.JOptionPane; // this is the input box
-import java.text.DecimalFormat; // this will help format the GPA in 0.00 format.
+import java.text.DecimalFormat; // this will help format the GPA in 0.00 format
+import java.math.RoundingMode; // this imports ability of .setRoundingMode to truncate the GPA
 
 public class Secondgpacalc {
 
@@ -15,9 +16,9 @@ public class Secondgpacalc {
     public static void main(String[] args) {
         
         /* This truncates the GPA. Notice that it's imporant in a later code:
-        System.out.println("Your GPA is " + df.format(sum)); 
-        Note also that this rounds the decimals instead of truncates. Will want to fix this later. */
+        JOptionPane.showMessageDialog(null, "Your GPA is " + df.format(sum)); */
         DecimalFormat df = new  DecimalFormat("0.00");
+        df.setRoundingMode(RoundingMode.FLOOR); // this truncates, instead of rounds, the final output
         
         //This part collects, from the user, the credits associated with each grade 
         String a_grades;
@@ -51,7 +52,7 @@ public class Secondgpacalc {
         double sum = gradePoints / totalCredits;
         
         //This outputs the GPA, where the double sum is the answer
-        JOptionPane.showMessageDialog(null, df.format(sum));
+        JOptionPane.showMessageDialog(null, "Your GPA is " + df.format(sum));
         System.exit(0); //this makes sure values are wiped out after run.
     }
     
