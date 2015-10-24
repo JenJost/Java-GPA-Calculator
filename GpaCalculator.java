@@ -7,7 +7,7 @@ public class MyGpaCalculator {
     
     /* This truncates the GPA. Notice that it's imporant in a later code:
       System.out.println("Your GPA is " + df.format(sum)); 
-      Note also that this rounds the decimals instead of truncates. */
+      Note also that this rounds the decimals instead of truncates. Will want to fix this later. */
     DecimalFormat df = new  DecimalFormat("0.00");
     
     /* The Scanner constructor requires an input stream 
