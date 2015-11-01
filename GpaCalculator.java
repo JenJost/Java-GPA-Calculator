@@ -5,13 +5,13 @@ public class MyGpaCalculator {
 
     public static void main(final String[] args) {
     
-    /* This truncates the GPA. Notice that it's imporant in a later code:
+    /* Notice that creating df is imporant in  later code:
       System.out.println("Your GPA is " + df.format(sum)); 
       Note also that this rounds the decimals instead of truncates. Will want to fix this later. */
     DecimalFormat df = new  DecimalFormat("0.00");
     
     /* The Scanner constructor requires an input stream 
-    object as an argument. GpaScanner is an identifer and variable. */
+    object as an argument. gpaScanner is an identifer and variable. */
     Scanner gpaScanner = new Scanner ( System.in ); 
     
     //This part prompts the user for number of credits associated with each grade. 
