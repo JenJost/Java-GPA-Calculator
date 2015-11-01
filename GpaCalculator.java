@@ -5,6 +5,9 @@
  * The second version of my Java GPA Calculator.
  * Prior versions saved as branches in GitHub. 
  */
+ 
+ /* In this version, I wanted to present JOptionPane as a nicer way to present the questions.
+ And I wanted to fix the problem of the GPA being rounded instead of truncated. */
 
 import javax.swing.JOptionPane; // this is the input box
 import java.text.DecimalFormat; // this will help format the GPA in 0.00 format
@@ -15,7 +18,7 @@ public class Secondgpacalc {
    
     public static void main(String[] args) {
         
-        /* This truncates the GPA. Notice that it's imporant in a later code:
+        /* Notice that creating df is imporant in later code:
         JOptionPane.showMessageDialog(null, "Your GPA is " + df.format(sum)); */
         DecimalFormat df = new  DecimalFormat("0.00");
         df.setRoundingMode(RoundingMode.FLOOR); // this truncates, instead of rounds, the final output
