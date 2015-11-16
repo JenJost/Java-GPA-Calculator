@@ -1,7 +1,16 @@
+/*
+* Getting back into Java
+* Jenifer Jost
+* Fremont, NE
+* November 2015
+*
+*/
+
+
 package gpacalculator;
 
-import java.math.RoundingMode;
-import java.text.DecimalFormat; 
+import java.math.RoundingMode; // this helps truncate, rather than round, the final GPA
+import java.text.DecimalFormat; // this formats the GPA into the 0.00 format
 import java.awt.*; // ActionListener is defined in this package
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
