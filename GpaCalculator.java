@@ -5,55 +5,89 @@
  * The current (master) version of my GPA calculator.
  * Prior versions saved as GitHub branches. 
  */
+ 
+ //This version uses JFrame to allow multiple inputs in one window, 
+ //then returns answer in a JOptionPane
 
-import javax.swing.JOptionPane; // this is the input box
-import java.text.DecimalFormat; // this will help format the GPA in 0.00 format
-import java.math.RoundingMode; // this imports ability of .setRoundingMode to truncate the GPA
 
-public class Secondgpacalc {
+package gpacalc;
 
-   
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.DecimalFormat; 
+import java.math.RoundingMode; 
+
+
+public abstract class GpaCalc extends JFrame implements ActionListener {
+
+    
     public static void main(String[] args) {
         
-        /* This truncates the GPA. Notice that it's imporant in a later code:
-        JOptionPane.showMessageDialog(null, "Your GPA is " + df.format(sum)); */
-        DecimalFormat df = new  DecimalFormat("0.00");
-        df.setRoundingMode(RoundingMode.FLOOR); // this truncates, instead of rounds, the final output
+        JFrame frame = new JFrame("GPA Calculator");
+        frame.setVisible(true);
+        frame.setSize(300,250);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        //This part collects, from the user, the credits associated with each grade 
-        String a_grades;
-        a_grades = JOptionPane.showInputDialog("# Credits earned with A grade");
+        JPanel panel = new JPanel();
+        frame.add(panel);
         
-        String b_grades;
-        b_grades = JOptionPane.showInputDialog("# Credits earned with B grade");
+        JLabel aGrades = new JLabel("# Credits earned with A grade:");
+            JTextField a_Grades = new JTextField(3);
+        JLabel bGrades = new JLabel("# Credits earned with B grade:");
+            JTextField b_Grades = new JTextField(3);    
+        JLabel cGrades = new JLabel("# Credits earned with C grade:");
+            JTextField c_Grades = new JTextField(3);
+        JLabel dGrades = new JLabel("# Credits earned with D grade:");
+            JTextField d_Grades = new JTextField(3);
+        JLabel fGrades = new JLabel("# Credits earned with F grade:");
+            JTextField f_Grades = new JTextField(3);
+            
+        panel.add(aGrades);
+        panel.add(a_Grades);
+        panel.add(bGrades);
+        panel.add(b_Grades);
+        panel.add(cGrades);
+        panel.add(c_Grades);
+        panel.add(dGrades);
+        panel.add(d_Grades);
+        panel.add(fGrades);
+        panel.add(f_Grades);
         
-        String c_grades;
-        c_grades = JOptionPane.showInputDialog("# Credits earned with C grade");
-        
-        String d_grades;
-        d_grades = JOptionPane.showInputDialog("# Credits earned with D grade");
-        
-        String f_grades;
-        f_grades = JOptionPane.showInputDialog("# Credits earned with F grade");
-        
-        //This changes the input from strings into doubles
-        double aGrades = Double.parseDouble(a_grades);
-        double bGrades = Double.parseDouble(b_grades);
-        double cGrades = Double.parseDouble(c_grades);
-        double dGrades = Double.parseDouble(d_grades);
-        double fGrades = Double.parseDouble(f_grades);
-        
-        //This parts gets the total number of credits the student has earned
-        double totalCredits = aGrades + bGrades + cGrades + dGrades + fGrades;
+        JButton submit = new JButton("Submit");
+        panel.add(submit);
+        submit.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String gradesOfA = a_Grades.getText();
+                double aGrade = Double.parseDouble(gradesOfA);
+                String gradesOfB = b_Grades.getText();
+                double bGrade = Double.parseDouble(gradesOfB);
+                String gradesOfC = c_Grades.getText();
+                double cGrade = Double.parseDouble(gradesOfC);
+                String gradesOfD = d_Grades.getText();
+                double dGrade = Double.parseDouble(gradesOfD);
+                String gradesOfF = f_Grades.getText();
+                double fGrade = Double.parseDouble(gradesOfF);
+                
+                double totalCredits = aGrade + bGrade + cGrade + dGrade + fGrade;
       
-        //This part gets the number of grade points the student has earned
-        double gradePoints = (aGrades * 4) + (bGrades * 3) + (cGrades * 2) + (dGrades * 1) + (fGrades * 0);
+                
+                double gradePoints = (aGrade * 4) + (bGrade * 3) + (cGrade * 2) + (dGrade * 1) + (fGrade * 0);
         
-        double sum = gradePoints / totalCredits;
-        
-        //This outputs the GPA, where the double sum is the answer
-        JOptionPane.showMessageDialog(null, "Your GPA is " + df.format(sum));
-        System.exit(0); //this makes sure values are wiped out after run.
+                double sum = gradePoints / totalCredits;
+                
+                DecimalFormat df = new  DecimalFormat("0.00");
+                df.setRoundingMode(RoundingMode.FLOOR); 
+                JOptionPane.showMessageDialog(null, "Your GPA is " + df.format(sum));
+                System.exit(0); 
+            }
+        });
     }
     
-}
+ 
+    
+    
+    }
